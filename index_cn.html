@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <link rel="icon" href="./img/link.png" type="image/x-icon" />
+    <link type="text/css" rel="styleSheet"  href="./css/font-awesome.min.css" />
+    <link type="text/css" rel="styleSheet"  href="./index.css" />
+    <title>Hpdex</title>
+
+    <script>
+      /* YDUI 可伸缩布局方案
+      * rem计算方式：设计图尺寸px / 100 = 实际rem 【例: 100px = 1rem，32px = .32rem】
+      */
+      !function (window) {
+        /* 设计图文档宽度 */
+        var docWidth = 750;
+        var doc = window.document,
+          docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var recalc = (function refreshRem() {
+          var clientWidth = docEl.getBoundingClientRect().width;
+          /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
+          docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
+          return refreshRem;
+        })();
+        /* 添加倍屏标识，安卓为1 */
+        docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+        if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+          /* 添加IOS标识 */
+          doc.documentElement.classList.add('ios');
+          /* IOS8以上给html添加hairline样式，以便特殊处理 */
+          if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+            doc.documentElement.classList.add('hairline');
+        }
+        if (!doc.addEventListener) return;
+        window.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+      }(window);
+    </script>
+  </head>
+  <body>
+    <div id="index">
+      <div class="header">
+        <img class="logo" src='./img/logo.png' />
+        <div class='check'>
+          <a class="social-media_link" href="https://twitter.com/HPB_Global" target="_blank">
+            <i class="fa fa-twitter" ></i>
+          </a> 
+          <a
+          class="social-media_link"
+          href="https://t.me/hpdex_hpb"
+          target="_blank"
+        >
+            <i class="fa fa-telegram" ></i>
+
+            <a class="social-media_link" href="https://medium.com/hpb-foundation " target="_blank">
+            <i class="fa fa-medium" ></i>
+          </a> 
+          &nbsp;
+          &nbsp; 
+
+          <a class="check_cn" href="./index_cn.html">中文</a>
+          <div class="check_line"></div>
+          <a class="check_en" href="./index.html">EN</a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="wraper">
+          <img class="b_logo" src='./img/b_logo.png' />
+          <div class="title">社区驱动的去中心化交易网络</div>
+          <div class="btn_box">
+            <a class="box_link" href='https://app.hpdex.org'>
+              https://app.hpdex.org
+              <img class="box_icon" src='./img/icon.png' />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCNJYCTRT7"></script>
+    <script>
+	    window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-NCNJYCTRT7');
+    </script>
+  </body>
+</html>
